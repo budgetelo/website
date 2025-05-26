@@ -1,0 +1,74 @@
+:root {
+  /* Light theme (default) */
+  --primary-color: #3ecf8e;
+  --primary-dark: #2fb676;
+  --secondary-color: #2d9d66;
+  --text-color: #1f2937;
+  --text-light: #6b7280;
+  --background: #ffffff;
+  --background-alt: #f9fafb;
+  --card-background: #ffffff;
+  --border-color: #e5e7eb;
+}
+
+[data-theme="dark"] {
+  --primary-color: #3ecf8e;
+  --primary-dark: #2fb676;
+  --secondary-color: #2d9d66;
+  --text-color: #f9fafb;
+  --text-light: #d1d5db;
+  --button-text: #f9fafb;
+  --background: #111827;
+  --background-alt: #1f2937;
+  --card-background: #1f2937;
+  --border-color: #374151;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.theme-toggle:hover {
+  color: var(--primary-color);
+}
+
+/* Apply theme colors */
+body {
+  background-color: var(--background);
+  color: var(--text-color);
+}
+
+.header {
+  background-color: var(--background-alt);
+}
+
+.feature-card {
+  background-color: var(--card-background);
+}
+
+.benefits {
+  background-color: var(--background-alt);
+}
+
+.footer {
+  background-color: var(--background-alt);
+}
+
+.footer-bottom {
+  border-color: var(--border-color);
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
