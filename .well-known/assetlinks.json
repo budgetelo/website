@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.example.budgetelo",
+      "sha256_cert_fingerprints": [
+        "18:6E:53:DC:7F:C5:CF:02:BA:2E:06:8F:96:C3:80:E8:C7:53:91:44:4C:B2:1B:00:48:44:BA:6C:53:9A:97:42"
+      ]
+    }
+  }
+]
