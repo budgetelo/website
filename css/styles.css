@@ -448,3 +448,264 @@ body {
     flex-direction: column;
   }
 }
+
+/* 404 Error Page Styles */
+.error-page {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0;
+}
+
+.error-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.error-icon {
+  font-size: 4rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.error-title {
+  font-size: 6rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0;
+  line-height: 1;
+}
+
+.error-subtitle {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 1rem 0;
+}
+
+.error-description {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.error-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.error-suggestions {
+  background: var(--background-light);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: left;
+  border: 1px solid #e5e7eb;
+}
+
+.error-suggestions h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.error-suggestions ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.error-suggestions li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.error-suggestions li:last-child {
+  border-bottom: none;
+}
+
+.error-suggestions a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.error-suggestions a:hover {
+  text-decoration: underline;
+}
+
+/* FAQ Page Styles */
+.faq-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
+
+.faq-intro {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 3rem;
+}
+
+.faq-sections {
+  margin-bottom: 3rem;
+}
+
+.faq-category {
+  margin-bottom: 3rem;
+}
+
+.faq-category h2 {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.faq-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faq-question {
+  padding: 1.5rem;
+  background: var(--background-light);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+  background: #e6f7f0;
+}
+
+.faq-question h3 {
+  margin: 0;
+  color: var(--text-color);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.faq-question i {
+  color: var(--primary-color);
+  transition: transform 0.3s ease;
+}
+
+.faq-answer {
+  padding: 0 1.5rem 1.5rem;
+  background: var(--white);
+  display: none;
+}
+
+.faq-answer p {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--text-light);
+}
+
+.faq-item.active .faq-question i {
+  transform: rotate(180deg);
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+.faq-contact {
+  text-align: center;
+  background: var(--background-light);
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.faq-contact h2 {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.faq-contact p {
+  color: var(--text-light);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.contact-options {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Additional responsive styles for 404 and FAQ pages */
+@media (max-width: 768px) {
+  .error-title {
+    font-size: 4rem;
+  }
+
+  .error-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .error-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .error-actions .btn {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .faq-content {
+    padding: 1rem 0 2rem;
+  }
+
+  .faq-question {
+    padding: 1rem;
+  }
+
+  .faq-answer {
+    padding: 0 1rem 1rem;
+  }
+
+  .contact-options {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-options .btn {
+    width: 100%;
+    max-width: 250px;
+  }
+}
