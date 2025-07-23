@@ -501,11 +501,11 @@ body {
 }
 
 .error-suggestions {
-  background: var(--background-light);
+  background: var(--background-alt);
   padding: 2rem;
   border-radius: 12px;
   text-align: left;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border-color);
 }
 
 .error-suggestions h3 {
@@ -522,7 +522,7 @@ body {
 
 .error-suggestions li {
   padding: 0.5rem 0;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .error-suggestions li:last-child {
@@ -572,7 +572,7 @@ body {
 }
 
 .faq-item {
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   margin-bottom: 1rem;
   overflow: hidden;
@@ -585,7 +585,7 @@ body {
 
 .faq-question {
   padding: 1.5rem;
-  background: var(--background-light);
+  background: var(--background-alt);
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -594,7 +594,7 @@ body {
 }
 
 .faq-question:hover {
-  background: #e6f7f0;
+  background: var(--card-background);
 }
 
 .faq-question h3 {
@@ -611,7 +611,7 @@ body {
 
 .faq-answer {
   padding: 0 1.5rem 1.5rem;
-  background: var(--white);
+  background: var(--card-background);
   display: none;
 }
 
@@ -632,10 +632,10 @@ body {
 
 .faq-contact {
   text-align: center;
-  background: var(--background-light);
+  background: var(--background-alt);
   padding: 3rem 2rem;
   border-radius: 12px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border-color);
 }
 
 .faq-contact h2 {

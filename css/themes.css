@@ -6,6 +6,7 @@
   --text-color: #1f2937;
   --text-light: #6b7280;
   --background: #ffffff;
+  --background-light: #f9fafb;
   --background-alt: #f9fafb;
   --card-background: #ffffff;
   --border-color: #e5e7eb;
@@ -19,6 +20,7 @@
   --text-light: #d1d5db;
   --button-text: #f9fafb;
   --background: #111827;
+  --background-light: #1f2937;
   --background-alt: #1f2937;
   --card-background: #1f2937;
   --border-color: #374151;
@@ -65,6 +67,38 @@ body {
 }
 
 .footer-bottom {
+  border-color: var(--border-color);
+}
+
+/* FAQ specific theme styles */
+.faq-item {
+  border-color: var(--border-color);
+}
+
+.faq-question {
+  background-color: var(--background-alt);
+}
+
+.faq-question:hover {
+  background-color: var(--card-background);
+}
+
+.faq-answer {
+  background-color: var(--card-background);
+}
+
+.faq-contact {
+  background-color: var(--background-alt);
+  border-color: var(--border-color);
+}
+
+/* Error page theme styles */
+.error-suggestions {
+  background-color: var(--background-alt);
+  border-color: var(--border-color);
+}
+
+.error-suggestions li {
   border-color: var(--border-color);
 }
 
