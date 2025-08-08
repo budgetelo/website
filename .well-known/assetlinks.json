@@ -3,7 +3,7 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "com.budgetelo.budgetelo",
+      "package_name": "com.budgetelo.app",
       "sha256_cert_fingerprints": [
         "CD:E6:4B:72:29:3E:21:A0:D4:51:B1:A1:ED:5E:D3:4D:C0:61:CE:70:E0:3B:17:CB:37:80:7E:49:E1:99:E2:6D"
       ]
