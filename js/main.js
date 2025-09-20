@@ -6,6 +6,7 @@ const themeIcon = themeToggle.querySelector("i");
 const savedTheme = localStorage.getItem("theme") || "light";
 document.documentElement.setAttribute("data-theme", savedTheme);
 updateThemeIcon(savedTheme);
+updateThemeImages(savedTheme);
 
 themeToggle.addEventListener("click", () => {
   const currentTheme = document.documentElement.getAttribute("data-theme");
@@ -14,10 +15,30 @@ themeToggle.addEventListener("click", () => {
   document.documentElement.setAttribute("data-theme", newTheme);
   localStorage.setItem("theme", newTheme);
   updateThemeIcon(newTheme);
+  updateThemeImages(newTheme);
 });
 
 function updateThemeIcon(theme) {
   themeIcon.className = theme === "light" ? "fas fa-moon" : "fas fa-sun";
+}
+
+function updateThemeImages(theme) {
+  const heroImage = document.getElementById("hero-image");
+  const benefitImage = document.getElementById("benefit-image");
+
+  if (heroImage) {
+    heroImage.src =
+      theme === "light"
+        ? "images/iphone isometric.png"
+        : "images/iphone isometric_dark.png";
+  }
+
+  if (benefitImage) {
+    benefitImage.src =
+      theme === "light"
+        ? "images/iphone front_bar charts.png"
+        : "images/iphone front_bar charts_dark.png";
+  }
 }
 
 // Smooth scrolling for navigation links

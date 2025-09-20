@@ -66,8 +66,16 @@ body {
   background-color: var(--background-alt);
 }
 
+.contact {
+  background-color: var(--background-light);
+}
+
+.contact-card {
+  background-color: var(--card-background);
+}
+
 .footer {
-  background-color: var(--background-alt);
+  background-color: var(--background);
 }
 
 .footer-bottom {
