@@ -1,33 +1,45 @@
 :root {
   /* Light theme (default) */
   --primary-color: #3ecf8e;
+  --primary-rgb: 62, 207, 142;
   --primary-dark: #2fb676;
   --secondary-color: #2d9d66;
   --text-color: #1f2937;
+  --text-rgb: 31, 41, 55;
   --text-light: #6b7280;
   --link-color: #2563eb;
   --link-hover: #1d4ed8;
   --background: #ffffff;
+  --background-rgb: 255, 255, 255;
   --background-light: #f9fafb;
   --background-alt: #f9fafb;
   --card-background: #ffffff;
+  --card-background-rgb: 255, 255, 255;
   --border-color: #e5e7eb;
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-bg: rgba(255, 255, 255, 0.7);
 }
 
 [data-theme="dark"] {
   --primary-color: #3ecf8e;
+  --primary-rgb: 62, 207, 142;
   --primary-dark: #2fb676;
   --secondary-color: #2d9d66;
   --text-color: #f9fafb;
+  --text-rgb: 249, 250, 251;
   --text-light: #d1d5db;
   --link-color: #60a5fa;
   --link-hover: #3b82f6;
   --button-text: #f9fafb;
-  --background: #111827;
-  --background-light: #1f2937;
-  --background-alt: #1f2937;
-  --card-background: #1f2937;
-  --border-color: #374151;
+  --background: #0f172a; /* Darker, richer blue-black */
+  --background-rgb: 15, 23, 42;
+  --background-light: #1e293b;
+  --background-alt: #1e293b;
+  --card-background: #1e293b;
+  --card-background-rgb: 30, 41, 59;
+  --border-color: #334155;
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(30, 41, 59, 0.7);
 }
 
 /* Theme Toggle Button */
