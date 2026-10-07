@@ -4,323 +4,666 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Budgetelo - Your Personal Finance Manager</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <meta
+      name="description"
+      content="Budgetelo is an intuitive personal budgeting app for iOS and Android. Assign your income to categories, track spending and see exactly what's left."
+    />
+    <script>
+      (function () {
+        var d = document.documentElement, t = null;
+        try { t = localStorage.getItem("theme"); } catch (e) {}
+        if (t !== "light" && t !== "dark") {
+          t = window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        d.setAttribute("data-theme", t);
+        d.classList.add("js");
+      })();
+    </script>
     <link rel="stylesheet" href="css/themes.css" />
+    <link rel="stylesheet" href="css/styles.css" />
     <link rel="icon" href="images/logo.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..700&family=Geist:wght@400..700&display=swap"
       rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
   </head>
   <body>
-    <nav class="nav">
-      <div class="container nav-container">
-        <div class="logo">
-          <img src="images/logo.svg" alt="Budgetelo Logo" class="logo-img" />
+    <header class="nav">
+      <div class="nav-bar">
+        <a href="/" class="logo" aria-label="Budgetelo home">
+          <img src="images/logo.svg" alt="" class="logo-img" />
           <span>Budgetelo</span>
-        </div>
-        <button class="mobile-menu-btn" aria-label="Toggle menu">
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="nav-links">
+        </a>
+        <nav class="nav-links" id="nav-links" aria-label="Main">
           <a href="#features">Features</a>
-          <a href="#benefits">Benefits</a>
-          <a href="#download">Download</a>
-          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-            <i class="fas fa-moon"></i>
+          <a href="#how-it-works">How it works</a>
+          <a href="faq">FAQ</a>
+          <a href="#contact">Contact</a>
+          <a href="#download" class="only-mobile">Download</a>
+        </nav>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode">
+            <svg class="i icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            <svg class="i icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
           </button>
-        </div>
-      </div>
-    </nav>
-    <header class="header">
-      <div class="hero container">
-        <div class="hero-content reveal">
-          <h1>Control your finances<br />with ease</h1>
-          <p>
-            Budgetelo is an intuitive personal budget management app that helps
-            you achieve your financial goals.
-          </p>
-          <div class="cta-buttons">
-            <a
-              href="http://play.google.com/store/apps/details?id=com.budgetelo.app"
-              class="btn btn-primary"
-            >
-              <i class="fab fa-google-play"></i>
-              Google Play
-            </a>
-            <a href="https://apps.apple.com/us/app/budgetelo/id6752422354" class="btn btn-secondary">
-              <i class="fab fa-apple"></i>
-              App Store
-            </a>
-          </div>
-        </div>
-        <div class="hero-image reveal delay-200">
-          <img
-            id="hero-image"
-            src="images/iphone isometric.png"
-            alt="Budgetelo App Screenshot"
-          />
+          <a href="#download" class="btn btn-primary btn-sm nav-cta">Get the app</a>
+          <button class="icon-btn mobile-menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+            <svg class="i icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
+            <svg class="i icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
         </div>
       </div>
     </header>
 
-    <section id="benefits" class="benefits">
-      <div class="container">
-        <h2 class="reveal">Why Budgetelo?</h2>
-        <div class="features-grid">
-          <div class="feature-card reveal delay-100">
-            <i class="fas fa-chart-pie"></i>
-            <h3>Expense Tracking</h3>
-            <p>
-              Smart analysis: quick tabs for Income vs Expense and Expense
-              Breakdown with ready‑to‑use charts
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-content reveal">
+            <span class="eyebrow-pill"><span class="dot"></span>Envelope budgeting for iOS &amp; Android</span>
+            <h1>Your money,<br /><span class="muted">with a plan.</span></h1>
+            <p class="lead">
+              Budgetelo is an intuitive personal budgeting app. Give every bit of
+              income a category, track spending as it happens and always know
+              exactly what's left.
             </p>
-          </div>
-          <div class="feature-card reveal delay-200">
-            <i class="fas fa-piggy-bank"></i>
-            <h3>Savings Goals</h3>
-            <p>Set goals and track your progress with intuitive charts.</p>
-          </div>
-          <div class="feature-card reveal delay-300">
-            <i class="fas fa-bell"></i>
-            <h3>Smart Notifications</h3>
-            <p>Receive payment reminders and budget overspending alerts.</p>
-          </div>
-          <div class="feature-card reveal delay-400">
-            <i class="fas fa-lock"></i>
-            <h3>Data Security</h3>
-            <p>
-              Your financial data is protected by the highest security
-              standards.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="benefits" class="benefits">
-      <div class="container">
-        <h2 class="reveal">Why Budgetelo?</h2>
-        <div class="benefits-grid">
-          <div class="benefit-content reveal">
-            <h3>Save Smarter</h3>
-            <p>
-              Track your spending and income to build better financial habits.
-            </p>
-            <ul class="benefit-list">
-              <li>Simple expense and income tracking</li>
-              <li>Clear overview of your finances</li>
-              <li>Visual charts to see spending patterns</li>
+            <div class="cta-buttons">
+              <a href="https://apps.apple.com/us/app/budgetelo/id6752422354" class="btn btn-primary btn-store">
+                <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+                <span class="btn-store-text"><small>Download on the</small>App Store</span>
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=com.budgetelo.app" class="btn btn-ghost btn-store">
+                <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg>
+                <span class="btn-store-text"><small>Get it on</small>Google Play</span>
+              </a>
+            </div>
+            <ul class="hero-meta">
+              <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Free core app</li>
+              <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>No ads</li>
+              <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Synced across devices</li>
             </ul>
           </div>
-          <div class="benefit-image reveal delay-200">
-            <img
-              id="benefit-image"
-              src="images/iphone front_bar charts.png"
-              alt="Visualizing Savings"
-            />
+
+          <div class="hero-visual reveal delay-200">
+            <div class="phone" role="img" aria-label="Budgetelo home screen showing a total balance of $8,200, $2,500 left to assign and food categories with their progress">
+              <div class="phone-screen" aria-hidden="true">
+                <div class="m-status">
+                  <span>9:41</span>
+                  <span class="m-status-icons">
+                    <svg class="i" viewBox="0 0 24 24" style="width:17px;height:17px;stroke-width:2.4"><path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/></svg>
+                    <span class="m-battery"></span>
+                  </span>
+                </div>
+                <div class="m-body">
+                  <div class="m-between">
+                    <span class="m-budget">
+                      <span class="m-tile" data-tone="mint"><svg class="i" viewBox="0 0 24 24"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg></span>
+                      Household budget
+                      <svg class="i" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                    </span>
+                    <span class="m-btn"><svg class="i" viewBox="0 0 24 24"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></svg></span>
+                  </div>
+
+                  <div class="m-between">
+                    <span class="m-title sm">September <span>2026</span></span>
+                    <span class="m-arrows">
+                      <span class="m-btn outline"><svg class="i" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></span>
+                      <span class="m-btn outline"><svg class="i" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></span>
+                    </span>
+                  </div>
+
+                  <div class="m-card m-balance">
+                    <div>
+                      <span class="m-label">Total balance</span>
+                      <span class="m-amount">$8,200<small>.00</small></span>
+                    </div>
+                    <span class="m-btn chip"><svg class="i" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span>
+                  </div>
+
+                  <div class="m-assign">
+                    <div>
+                      <span class="m-label">To assign</span>
+                      <span class="m-amount">$2,500<small>.00</small></span>
+                    </div>
+                    <span class="m-btn"><svg class="i" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+                    <span class="m-btn soft"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span>
+                  </div>
+
+                  <div class="m-between" style="margin-top: 2px">
+                    <span class="m-h2">Categories</span>
+                    <span class="m-icon-plain"><svg class="i" viewBox="0 0 24 24"><path d="M21 4h-7"/><path d="M10 4H3"/><path d="M21 12h-9"/><path d="M8 12H3"/><path d="M21 20h-5"/><path d="M12 20H3"/><path d="M14 2v4"/><path d="M8 10v4"/><path d="M16 18v4"/></svg></span>
+                  </div>
+
+                  <div class="m-card m-group" style="margin-top: -10px">
+                    <div class="m-group-head">
+                      <svg class="i" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                      <span>Food</span>
+                      <small>Available</small>
+                    </div>
+                    <div class="m-cols"><span>Target</span><span>Allocated / Spent</span></div>
+                    <div class="m-cat">
+                      <div class="m-cat-top">
+                        <span class="m-tile" data-tone="green"><svg class="i" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></span>
+                        <span>Groceries</span>
+                        <span class="pill pill--ok">$1,700.00</span>
+                      </div>
+                      <span class="bar"><span style="width: 100%"></span><span class="soft" style="width: 53%"></span></span>
+                      <span class="m-cat-foot"><span>$1,500.00</span><span>$1,500.00 / $800.00</span></span>
+                    </div>
+                    <div class="m-cat">
+                      <div class="m-cat-top">
+                        <span class="m-tile" data-tone="orange"><svg class="i" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg></span>
+                        <span>Dining out</span>
+                        <span class="pill pill--warn">$100.00</span>
+                      </div>
+                      <span class="bar orange"><span style="width: 83%"></span><span class="soft" style="width: 50%"></span></span>
+                      <span class="m-cat-foot"><span>$300.00</span><span>$250.00 / $150.00</span></span>
+                    </div>
+                  </div>
+
+                  <div class="m-card m-group">
+                    <div class="m-group-head">
+                      <svg class="i" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+                      <span>Housing</span>
+                      <small>Available</small>
+                    </div>
+                    <div class="m-cols"><span>Target</span><span>Allocated / Spent</span></div>
+                    <div class="m-cat">
+                      <div class="m-cat-top">
+                        <span class="m-tile" data-tone="indigo"><svg class="i" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg></span>
+                        <span>Rent / mortgage</span>
+                        <span class="pill pill--ok">$1,000.00</span>
+                      </div>
+                      <span class="bar"><span style="width: 100%"></span><span class="soft" style="width: 67%"></span></span>
+                      <span class="m-cat-foot"><span>$2,000.00 by the 10th</span><span>$3,000.00 / $2,000.00</span></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="m-fade"></div>
+                <div class="m-tabbar">
+                  <div class="m-tabs">
+                    <span class="active"><svg class="i" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Home</span>
+                    <span><svg class="i" viewBox="0 0 24 24"><path d="M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z"/><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/></svg>Analysis</span>
+                    <span><svg class="i" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>History</span>
+                    <span><svg class="i" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="2"/><rect width="7" height="7" x="14" y="3" rx="2"/><rect width="7" height="7" x="14" y="14" rx="2"/><rect width="7" height="7" x="3" y="14" rx="2"/></svg>More</span>
+                  </div>
+                  <span class="m-fab"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="float-card float-widget" aria-hidden="true">
+              <div class="fw-month">September 2026</div>
+              <div class="fw-amount">$8,200.00</div>
+              <div class="fw-label">Total balance</div>
+              <div class="fw-assign">To assign<strong>$2,500.00</strong></div>
+            </div>
+
+            <div class="float-card float-row" aria-hidden="true">
+              <div class="cat-row">
+                <span class="tile tile-sm" data-tone="violet"><svg class="i" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
+                <span><span class="cat-name">Maintenance</span><span class="cat-sub">$240 of $200 · <em>over plan</em></span></span>
+                <span class="pill pill--over">−$40.00</span>
+                <span class="bar red"><span style="width: 100%"></span></span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="features" class="features">
-      <div class="container">
-        <h2 class="reveal">Key Features</h2>
-        <div class="features-grid">
-          <div class="feature-card reveal delay-100">
-            <i class="fas fa-chart-pie"></i>
-            <h3>Expense Tracking</h3>
+      <!-- Features -->
+      <section id="features" class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">Features</span>
+            <h2>Everything in its place</h2>
             <p>
-              Smart analysis: quick tabs for Income vs Expense and Expense
-              Breakdown with ready‑to‑use charts
+              Budgetelo is built around one simple idea: every bit of money you
+              have gets a purpose. Here's how the app helps you keep it that way.
             </p>
           </div>
-          <div class="feature-card reveal delay-200">
-            <i class="fas fa-piggy-bank"></i>
-            <h3>Savings Goals</h3>
-            <p>Set goals and track your progress with intuitive charts.</p>
+
+          <div class="bento">
+            <article class="card feature span-4 reveal">
+              <div class="feature-visual" aria-hidden="true">
+                <div class="fv-assign">
+                  <div class="m-assign">
+                    <div>
+                      <span class="m-label">To assign</span>
+                      <span class="m-amount">$2,500<small>.00</small></span>
+                    </div>
+                    <span class="m-btn"><svg class="i" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+                    <span class="m-btn soft"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span>
+                  </div>
+                  <div class="fv-list">
+                    <div class="cat-row">
+                      <span class="tile tile-sm" data-tone="green"><svg class="i" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></span>
+                      <span><span class="cat-name">Groceries</span><span class="cat-sub">Food · target $800</span></span>
+                      <span class="pill pill--ok">$1,700.00</span>
+                      <span class="bar"><span style="width: 100%"></span><span class="soft" style="width: 53%"></span></span>
+                    </div>
+                    <div class="cat-row">
+                      <span class="tile tile-sm" data-tone="indigo"><svg class="i" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg></span>
+                      <span><span class="cat-name">Rent / mortgage</span><span class="cat-sub">Housing · due on the 10th</span></span>
+                      <span class="pill pill--ok">$1,000.00</span>
+                      <span class="bar"><span style="width: 100%"></span><span class="soft" style="width: 67%"></span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="feature-text">
+                <h3>Give every dollar a purpose</h3>
+                <p>
+                  See exactly how much is left to assign this month. Allocate it
+                  to categories yourself or in one tap with auto-allocate, and
+                  move money between categories when plans change.
+                </p>
+              </div>
+            </article>
+
+            <article class="card feature span-2 reveal delay-100">
+              <div class="feature-visual" aria-hidden="true">
+                <div class="fv-states">
+                  <span class="pill pill--ok">Available · $1,700.00</span>
+                  <span class="pill pill--warn">Short of target</span>
+                  <span class="pill pill--over">Overspent · −$40.00</span>
+                  <div class="card">
+                    <div class="cat-row">
+                      <span class="tile tile-sm" data-tone="violet"><svg class="i" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
+                      <span><span class="cat-name">Maintenance</span><span class="cat-sub">$240 of $200 · <em>over plan</em></span></span>
+                      <span></span>
+                      <span class="bar red"><span style="width: 100%"></span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="feature-text">
+                <h3>Know where you stand</h3>
+                <p>
+                  Set a target for every category. Clear colors show what's
+                  available, what still needs funding and where you went over.
+                </p>
+              </div>
+            </article>
+
+            <article class="card feature span-3 reveal">
+              <div class="feature-visual" aria-hidden="true">
+                <div class="fv-add">
+                  <div class="segmented">
+                    <span class="active">Expense</span><span>Income</span><span>Transfer</span>
+                  </div>
+                  <div class="fv-amount"><span class="sign">−</span><b>$85</b><small>.00</small></div>
+                  <span class="pill pill--warn">$15.00 will be left in this category</span>
+                  <div class="fv-fields">
+                    <div class="fv-field">
+                      <span class="tile" data-tone="orange"><svg class="i" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg></span>
+                      <span><small>Category</small><b>Dining out</b></span>
+                    </div>
+                    <div class="fv-field">
+                      <span class="tile" data-tone="orange"><svg class="i" viewBox="0 0 24 24"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg></span>
+                      <span><small>Account</small><b>Cash</b></span>
+                    </div>
+                    <div class="fv-field">
+                      <span class="tile"><svg class="i" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></span>
+                      <span><small>Payee</small><b>Trattoria Roma</b></span>
+                    </div>
+                    <div class="fv-field">
+                      <span class="tile"><svg class="i" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg></span>
+                      <span><small>Date</small><b>Today, Sep 29</b></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="feature-text">
+                <h3>Add a transaction in seconds</h3>
+                <p>
+                  A big keypad, quick pickers for category, account and payee,
+                  and a live preview of what will be left in the category.
+                </p>
+              </div>
+            </article>
+
+            <article class="card feature span-3 reveal delay-100">
+              <div class="feature-visual" aria-hidden="true">
+                <div class="fv-analysis">
+                  <div class="m-breakdown">
+                    <div class="m-between">
+                      <h4>Spending breakdown</h4>
+                      <span class="m-link">Payees<svg class="i" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></span>
+                    </div>
+                    <div class="donut-wrap">
+                      <div class="donut">
+                        <svg viewBox="0 0 128 128">
+                          <g transform="rotate(-90 64 64)">
+                            <circle cx="64" cy="64" r="52" style="stroke: var(--chart-1); stroke-dasharray: 178.52 326.73; stroke-dashoffset: 0"/>
+                            <circle cx="64" cy="64" r="52" style="stroke: var(--chart-2); stroke-dasharray: 69.6 326.73; stroke-dashoffset: -181.52"/>
+                            <circle cx="64" cy="64" r="52" style="stroke: var(--chart-3); stroke-dasharray: 42.38 326.73; stroke-dashoffset: -254.12"/>
+                            <circle cx="64" cy="64" r="52" style="stroke: var(--chart-4); stroke-dasharray: 10.61 326.73; stroke-dashoffset: -299.5"/>
+                            <circle cx="64" cy="64" r="52" style="stroke: var(--chart-5); stroke-dasharray: 6.08 326.73; stroke-dashoffset: -313.11"/>
+                            <circle cx="64" cy="64" r="52" style="stroke: var(--chart-6); stroke-dasharray: 1.54 326.73; stroke-dashoffset: -322.19"/>
+                          </g>
+                        </svg>
+                        <div class="donut-center"><small>Total</small><strong>$3,600</strong></div>
+                      </div>
+                      <ul class="legend">
+                        <li style="--c: var(--chart-1)"><span>Rent / mortgage</span><b>56%</b></li>
+                        <li style="--c: var(--chart-2)"><span>Groceries</span><b>22%</b></li>
+                        <li style="--c: var(--chart-3)"><span>Car insurance</span><b>14%</b></li>
+                        <li style="--c: var(--chart-4)"><span>Dining out</span><b>4%</b></li>
+                        <li style="--c: var(--chart-5)"><span>Cinema</span><b>3%</b></li>
+                        <li style="--c: var(--chart-6)"><span>Maintenance</span><b>1%</b></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="feature-text">
+                <h3>See where your money goes</h3>
+                <p>
+                  Clear charts for income vs expenses, categories, groups and
+                  payees, so patterns jump out at a glance.
+                </p>
+              </div>
+            </article>
           </div>
-          <div class="feature-card reveal delay-300">
-            <i class="fas fa-bell"></i>
-            <h3>Smart Notifications</h3>
-            <p>Receive payment reminders and budget overspending alerts.</p>
+
+          <div class="mini-grid">
+            <article class="card mini reveal">
+              <span class="tile" data-tone="sand"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg></span>
+              <h3>Recurring transactions</h3>
+              <p>Set up rent, salary or subscriptions once and let them repeat on schedule.</p>
+            </article>
+            <article class="card mini reveal delay-100">
+              <span class="tile" data-tone="green"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="2"/><rect width="7" height="7" x="14" y="3" rx="2"/><rect width="7" height="7" x="14" y="14" rx="2"/><rect width="7" height="7" x="3" y="14" rx="2"/></svg></span>
+              <h3>Home-screen widget</h3>
+              <p>Check your balance and what's left to assign without opening the app.</p>
+            </article>
+            <article class="card mini reveal delay-200">
+              <span class="tile" data-tone="violet"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+              <h3>App lock</h3>
+              <p>Keep your budget private, even when someone else picks up your phone.</p>
+            </article>
+            <article class="card mini reveal delay-300">
+              <span class="tile" data-tone="blue"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg></span>
+              <h3>Cloud sync</h3>
+              <p>Your data is backed up automatically and available on all your devices.</p>
+            </article>
           </div>
-          <div class="feature-card reveal delay-400">
-            <i class="fas fa-cloud"></i>
-            <h3>Cloud Sync</h3>
-            <p>
-              Your data is automatically backed up and accessible across all your devices.
+        </div>
+      </section>
+
+      <!-- Analysis showcase -->
+      <section id="analysis" class="section" style="padding-top: 0">
+        <div class="container showcase-grid">
+          <div class="reveal">
+            <span class="eyebrow">Analysis</span>
+            <h2 class="section-title">See where your money really goes</h2>
+            <p class="lead">
+              Spot patterns at a glance: what you earn, what you spend, and which
+              categories and payees take the biggest share.
+            </p>
+            <ul class="check-list">
+              <li><span class="tick"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Income vs expenses for every month</li>
+              <li><span class="tick"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Month-over-month comparison</li>
+              <li><span class="tick"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Breakdown by category, group and payee</li>
+              <li><span class="tick"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Spending structure across your whole budget</li>
+            </ul>
+            <p class="note">
+              Income vs Expense is included free. The full set of reports comes
+              with Budgetelo Premium.
             </p>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- How It Works Section -->
-    <section class="how-it-works">
-      <div class="container">
-        <h2 class="reveal">How It Works</h2>
-        <div class="steps-grid">
-          <div class="step-card reveal delay-100">
-            <div class="step-number">1</div>
-            <h3>Download & Sign Up</h3>
-            <p>Get the app from your store and create a secure account in seconds.</p>
-          </div>
-          <div class="step-card reveal delay-200">
-            <div class="step-number">2</div>
-            <h3>Set Your Budget</h3>
-            <p>Define your monthly limits and savings goals easily.</p>
-          </div>
-          <div class="step-card reveal delay-300">
-            <div class="step-number">3</div>
-            <h3>Track & Save</h3>
-            <p>Log expenses, monitor progress, and watch your savings grow.</p>
+          <div class="showcase-visual reveal delay-200">
+            <div class="phone" role="img" aria-label="Budgetelo analysis screen with income and expense totals, a spending breakdown donut chart and top categories">
+              <div class="phone-screen" aria-hidden="true">
+                <div class="m-status">
+                  <span>9:41</span>
+                  <span class="m-status-icons">
+                    <svg class="i" viewBox="0 0 24 24" style="width:17px;height:17px;stroke-width:2.4"><path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/></svg>
+                    <span class="m-battery"></span>
+                  </span>
+                </div>
+                <div class="m-body tight">
+                  <div class="m-between">
+                    <span class="m-title">Analysis</span>
+                    <span class="m-period">September 2026<svg class="i" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span>
+                  </div>
+
+                  <div class="segmented"><span>Groups</span><span class="active">Categories</span></div>
+
+                  <div class="m-stats">
+                    <div class="m-stat">
+                      <span class="m-label">Total income</span>
+                      <span class="m-amount">$6,500.00</span>
+                      <span class="pill">no change m/m</span>
+                    </div>
+                    <div class="m-stat">
+                      <span class="m-label">Total expenses</span>
+                      <span class="m-amount">$3,600.00</span>
+                      <span class="pill pill--ok">−12% vs August</span>
+                    </div>
+                  </div>
+
+                  <div class="m-breakdown">
+                    <div class="m-between">
+                      <h4>Spending breakdown</h4>
+                      <span class="m-link">Payees<svg class="i" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></span>
+                    </div>
+                    <div class="donut-wrap">
+                      <div class="donut">
+                        <svg viewBox="0 0 128 128">
+                          <g transform="rotate(-90 64 64)">
+                            <circle cx="64" cy="64" r="52" style="stroke: var(--chart-1); stroke-dasharray: 178.52 326.73; stroke-dashoffset: 0"/>
+                            <circle cx="64" cy="64" r="52" style="stroke: var(--chart-2); stroke-dasharray: 69.6 326.73; stroke-dashoffset: -181.52"/>
+                            <circle cx="64" cy="64" r="52" style="stroke: var(--chart-3); stroke-dasharray: 42.38 326.73; stroke-dashoffset: -254.12"/>
+                            <circle cx="64" cy="64" r="52" style="stroke: var(--chart-4); stroke-dasharray: 10.61 326.73; stroke-dashoffset: -299.5"/>
+                            <circle cx="64" cy="64" r="52" style="stroke: var(--chart-5); stroke-dasharray: 6.08 326.73; stroke-dashoffset: -313.11"/>
+                            <circle cx="64" cy="64" r="52" style="stroke: var(--chart-6); stroke-dasharray: 1.54 326.73; stroke-dashoffset: -322.19"/>
+                          </g>
+                        </svg>
+                        <div class="donut-center"><small>Total</small><strong>$3,600</strong></div>
+                      </div>
+                      <ul class="legend">
+                        <li style="--c: var(--chart-1)"><span>Rent / mortgage</span><b>56%</b></li>
+                        <li style="--c: var(--chart-2)"><span>Groceries</span><b>22%</b></li>
+                        <li style="--c: var(--chart-3)"><span>Car insurance</span><b>14%</b></li>
+                        <li style="--c: var(--chart-4)"><span>Dining out</span><b>4%</b></li>
+                        <li style="--c: var(--chart-5)"><span>Cinema</span><b>3%</b></li>
+                        <li style="--c: var(--chart-6)"><span>Maintenance</span><b>1%</b></li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <span class="m-h2" style="margin-top: 6px">Top categories</span>
+
+                  <div class="m-top">
+                    <div class="m-top-row">
+                      <div>
+                        <span class="m-tile lg" data-tone="indigo"><svg class="i" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg></span>
+                        <span class="m-top-name"><span>Rent / mortgage</span><small>Housing · 55.6%</small></span>
+                        <b>$2,000.00</b>
+                      </div>
+                      <span class="bar indigo"><span style="width: 55.6%"></span></span>
+                    </div>
+                    <div class="m-top-row">
+                      <div>
+                        <span class="m-tile lg" data-tone="green"><svg class="i" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></span>
+                        <span class="m-top-name"><span>Groceries</span><small>Food · 22.2%</small></span>
+                        <b>$800.00</b>
+                      </div>
+                      <span class="bar"><span style="width: 22.2%"></span></span>
+                    </div>
+                    <div class="m-top-row">
+                      <div>
+                        <span class="m-tile lg" data-tone="blue"><svg class="i" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg></span>
+                        <span class="m-top-name"><span>Car insurance</span><small>Insurance · 13.9%</small></span>
+                        <b>$500.00</b>
+                      </div>
+                      <span class="bar blue"><span style="width: 13.9%"></span></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="m-fade"></div>
+                <div class="m-tabbar">
+                  <div class="m-tabs">
+                    <span><svg class="i" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Home</span>
+                    <span class="active"><svg class="i" viewBox="0 0 24 24"><path d="M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z"/><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/></svg>Analysis</span>
+                    <span><svg class="i" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>History</span>
+                    <span><svg class="i" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="2"/><rect width="7" height="7" x="14" y="3" rx="2"/><rect width="7" height="7" x="14" y="14" rx="2"/><rect width="7" height="7" x="3" y="14" rx="2"/></svg>More</span>
+                  </div>
+                  <span class="m-fab"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Security Section -->
-    <section class="security-section">
-      <div class="container">
-        <div class="security-content reveal">
-          <div class="security-text">
-            <h2>Bank-Level Security</h2>
-            <p>Your financial data is our top priority. We use state-of-the-art encryption to keep your information safe and private.</p>
+      <!-- How it works -->
+      <section id="how-it-works" class="section" style="padding-top: 0">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">How it works</span>
+            <h2>Up and running in minutes</h2>
+          </div>
+          <div class="steps-grid">
+            <article class="card step-card reveal">
+              <div class="step-number">1</div>
+              <h3>Download &amp; sign up</h3>
+              <p>Get the app from your store and create a secure account in seconds.</p>
+            </article>
+            <article class="card step-card reveal delay-100">
+              <div class="step-number">2</div>
+              <h3>Set up your budget</h3>
+              <p>Start from a template or build your own categories, then set a target for each.</p>
+            </article>
+            <article class="card step-card reveal delay-200">
+              <div class="step-number">3</div>
+              <h3>Track &amp; save</h3>
+              <p>Log expenses, follow your progress and watch your savings grow.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Security -->
+      <section class="section" style="padding-top: 0">
+        <div class="container">
+          <div class="security-card reveal">
+            <div>
+              <span class="eyebrow">Security</span>
+              <h2>Your data stays yours</h2>
+              <p>
+                Your financial data is our top priority. We use state-of-the-art
+                encryption to keep your information safe and private.
+              </p>
+            </div>
             <ul class="security-list">
-              <li><i class="fas fa-lock"></i> AES-256 Encryption</li>
-              <li><i class="fas fa-user-shield"></i> No Data Selling</li>
-              <li><i class="fas fa-cloud"></i> Secure Cloud Backup</li>
+              <li>
+                <span class="tile"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+                <span>AES-256 encryption<small>Encrypted in transit and at rest.</small></span>
+              </li>
+              <li>
+                <span class="tile"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
+                <span>No data selling<small>We never share your personal data with third parties.</small></span>
+              </li>
+              <li>
+                <span class="tile"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg></span>
+                <span>Secure cloud backup<small>Reinstall, sign in, and everything is where you left it.</small></span>
+              </li>
             </ul>
           </div>
-          <div class="security-icon">
-            <i class="fas fa-shield-check"></i>
-          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-      <div class="container">
-        <h2 class="reveal">What Users Say</h2>
-        <div class="testimonials-grid">
-          <div class="testimonial-card reveal delay-100">
-            <div class="stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p>"Finally an app that makes budgeting simple and actually fun to use. Love the dark mode!"</p>
-            <div class="user-info">
-              <strong>Sarah M.</strong>
-              <span>iOS User</span>
-            </div>
+      <!-- FAQ teaser -->
+      <section class="section" style="padding-top: 0">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">FAQ</span>
+            <h2>Common questions</h2>
           </div>
-          <div class="testimonial-card reveal delay-200">
-            <div class="stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p>"The savings goals feature helped me save for my vacation in just 3 months. Highly recommend."</p>
-            <div class="user-info">
-              <strong>Mike T.</strong>
-              <span>Android User</span>
-            </div>
+          <div class="faq-grid">
+            <article class="card faq-card reveal">
+              <h3>Is Budgetelo free?</h3>
+              <p>Yes - the core app is free with no limits and no ads. Budgetelo Premium is an optional subscription that adds full analytics, cloud backup, reminders and themes.</p>
+            </article>
+            <article class="card faq-card reveal delay-100">
+              <h3>Do I need an account?</h3>
+              <p>Yes, creating an account ensures your data is safely backed up and accessible from any device.</p>
+            </article>
+            <article class="card faq-card reveal delay-200">
+              <h3>Can I connect my bank?</h3>
+              <p>We focus on manual entry to give you complete control and maximum privacy for your data.</p>
+            </article>
           </div>
-          <div class="testimonial-card reveal delay-300">
-            <div class="stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p>"Clean interface, no ads, and it just works. Best budgeting app I've tried so far."</p>
-            <div class="user-info">
-              <strong>Jessica L.</strong>
-              <span>iOS User</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ Teaser -->
-    <section class="faq-teaser">
-      <div class="container">
-        <h2 class="reveal">Common Questions</h2>
-        <div class="faq-grid">
-          <div class="faq-card reveal delay-100">
-            <h3>Is Budgetelo free?</h3>
-            <p>Yes - the core app is free with no limits and no ads. Budgetelo Premium is an optional subscription that adds full analytics, cloud backup, reminders and themes.</p>
-          </div>
-          <div class="faq-card reveal delay-200">
-            <h3>Do I need an account?</h3>
-            <p>Yes, creating an account ensures your data is safely backed up and accessible from any device.</p>
-          </div>
-          <div class="faq-card reveal delay-300">
-            <h3>Can I connect my bank?</h3>
-            <p>We focus on manual entry to give you complete control and maximum privacy for your data.</p>
-          </div>
-        </div>
-        <div class="faq-cta reveal">
-          <a href="faq" class="btn btn-secondary">View All FAQs</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="download" class="download">
-      <div class="container reveal">
-        <h2>Start Today</h2>
-        <p>Download Budgetelo and take control of your finances</p>
-        <div class="download-buttons">
-          <a href="http://play.google.com/store/apps/details?id=com.budgetelo.app" class="btn btn-primary">
-            <i class="fab fa-google-play"></i>
-            Get it on Google Play
-          </a>
-          <a href="https://apps.apple.com/us/app/budgetelo/id6752422354" class="btn btn-secondary">
-            <i class="fab fa-apple"></i>
-            Download on App Store
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="contact">
-      <div class="container reveal">
-        <h2>Contact</h2>
-        <p>
-          Have questions or need support? We're here to help you with any issues
-          or concerns.
-        </p>
-        <div class="contact-info">
-          <div class="contact-card">
-            <i class="fas fa-envelope"></i>
-            <h3>Email Support</h3>
-            <p>
-              For any problems or other questions, feel free to reach out to us
-              at:
-            </p>
-            <a href="mailto:support@budgetelo.com" class="email-link">
-              support@budgetelo.com
+          <div class="faq-cta reveal">
+            <a href="faq" class="btn btn-ghost">
+              View all FAQs
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <!-- Download -->
+      <section id="download" class="section" style="padding-top: 0">
+        <div class="container">
+          <div class="download-card reveal">
+            <div>
+              <h2>Start today</h2>
+              <p>Download Budgetelo and take control of your finances.</p>
+            </div>
+            <div class="download-buttons">
+              <a href="https://apps.apple.com/us/app/budgetelo/id6752422354" class="btn btn-store btn-onaccent">
+                <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+                <span class="btn-store-text"><small>Download on the</small>App Store</span>
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=com.budgetelo.app" class="btn btn-store btn-onaccent-soft">
+                <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg>
+                <span class="btn-store-text"><small>Get it on</small>Google Play</span>
+              </a>
+            </div>
+            <span class="download-zap" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section" style="padding-top: 0">
+        <div class="container">
+          <div class="card contact-card reveal">
+            <span class="tile tile-lg" data-tone="mint"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+            <div>
+              <h3>Questions or need support?</h3>
+              <p>For any problems or other questions, feel free to reach out - we're here to help.</p>
+            </div>
+            <a href="mailto:support@budgetelo.com" class="btn btn-ghost">support@budgetelo.com</a>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
-          <div class="footer-logo">
-            <img src="images/logo.svg" alt="Budgetelo Logo" class="logo-img" />
-            <span>Budgetelo</span>
+          <div class="footer-brand">
+            <a href="/" class="logo">
+              <img src="images/logo.svg" alt="" class="logo-img" />
+              <span>Budgetelo</span>
+            </a>
+            <p>A calm, simple way to plan your money - on iOS and Android.</p>
           </div>
           <div class="footer-links">
             <div class="footer-column">
               <h4>Product</h4>
               <a href="#features">Features</a>
-              <a href="#benefits">Benefits</a>
+              <a href="#how-it-works">How it works</a>
               <a href="#download">Download</a>
             </div>
             <div class="footer-column">
@@ -336,12 +679,7 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2025</p>
-          <!-- <div class="social-links">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-          </div> -->
+          <p>&copy; 2026 Budgetelo</p>
         </div>
       </div>
     </footer>

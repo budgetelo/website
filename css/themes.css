@@ -1,153 +1,155 @@
+/*
+ * Budgetelo design tokens — "Budgetelo · mięta"
+ * Mirrors the app's visual system (light + dark).
+ */
 :root {
-  /* Light theme (default) */
-  --primary-color: #3ecf8e;
-  --primary-rgb: 62, 207, 142;
-  --primary-dark: #2fb676;
-  --secondary-color: #2d9d66;
-  --text-color: #1f2937;
-  --text-rgb: 31, 41, 55;
-  --text-light: #6b7280;
-  --link-color: #2563eb;
-  --link-hover: #1d4ed8;
-  --background: #ffffff;
-  --background-rgb: 255, 255, 255;
-  --background-light: #f9fafb;
-  --background-alt: #f9fafb;
-  --card-background: #ffffff;
-  --card-background-rgb: 255, 255, 255;
-  --border-color: #e5e7eb;
-  --glass-border: rgba(255, 255, 255, 0.5);
-  --glass-bg: rgba(255, 255, 255, 0.7);
+  color-scheme: light;
+
+  /* Surfaces */
+  --bg: #f3f4f0;
+  --bg-rgb: 243, 244, 240;
+  --surface: #ffffff;
+  --surface-2: #eef0ec; /* tracks, dividers */
+  --segment: #e9ebe6; /* segmented control track */
+  --chip: #f3f4f0; /* round button sitting on a card */
+  --border: #e3e6e0;
+  --line: #eef0ec;
+
+  /* Text */
+  --text: #16201b;
+  --text-2: #646c68;
+  --text-3: #737b77;
+
+  /* Accent (mint) */
+  --accent: #3ecf8e;
+  --accent-rgb: 62, 207, 142;
+  --accent-hover: #35c283;
+  --accent-ink: #0e2a1e;
+  --accent-soft: rgba(62, 207, 142, 0.24);
+  --accent-soft-fg: #0e2a1e;
+
+  /* Primary "ink" button / FAB */
+  --ink: #16201b;
+  --on-ink: #ffffff;
+  --ink-hover: #26322c;
+
+  /* Effects */
+  --shadow-card: 0 1px 2px rgba(22, 32, 27, 0.06);
+  --shadow-float: 0 10px 30px rgba(22, 32, 27, 0.12);
+  --shadow-fab: 0 10px 30px rgba(22, 32, 27, 0.25);
+  --shadow-lift: 0 24px 60px -20px rgba(22, 32, 27, 0.25);
+  --glass: rgba(255, 255, 255, 0.86);
+  --glass-border: rgba(22, 32, 27, 0.06);
+  --nav-active: rgba(22, 32, 27, 0.07);
+
+  /* Category tiles (background / icon) */
+  --tone-green-bg: #e4f3ea;
+  --tone-green-fg: #1d7a4e;
+  --tone-orange-bg: #fcebdd;
+  --tone-orange-fg: #a2551b;
+  --tone-indigo-bg: #e7eafb;
+  --tone-indigo-fg: #3f4db0;
+  --tone-violet-bg: #f1e8f8;
+  --tone-violet-fg: #7a3e9e;
+  --tone-blue-bg: #e3f1f8;
+  --tone-blue-fg: #22688c;
+  --tone-sand-bg: #f6f0e2;
+  --tone-sand-fg: #7d6320;
+  --tone-neutral-bg: #eef0ec;
+  --tone-neutral-fg: #16201b;
+
+  /* Category states */
+  --ok-bg: #e3f6ec;
+  --ok-fg: #0f7446;
+  --warn-bg: #fdf0d9;
+  --warn-fg: #8a5200;
+  --over-bg: #fce6e1;
+  --over-fg: #b23a26;
+
+  /* Progress bars (strong / soft) */
+  --bar-green: #1fa56a;
+  --bar-green-soft: #b5ebcf;
+  --bar-orange: #e39a26;
+  --bar-orange-soft: #f8ddae;
+  --bar-red: #e5664f;
+
+  /* Chart series */
+  --chart-1: #7f8ff4;
+  --chart-2: #3bb783;
+  --chart-3: #5db7e3;
+  --chart-4: #f2a65a;
+  --chart-5: #d8c48f;
+  --chart-6: #c58be3;
+
+  /* Shape */
+  --r-sm: 13px;
+  --r-md: 18px;
+  --r-lg: 24px;
+  --r-xl: 28px;
+  --r-full: 999px;
+
+  /* Type */
+  --font-display: "Bricolage Grotesque", "Geist", system-ui, sans-serif;
+  --font-body: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 [data-theme="dark"] {
-  --primary-color: #3ecf8e;
-  --primary-rgb: 62, 207, 142;
-  --primary-dark: #2fb676;
-  --secondary-color: #2d9d66;
-  --text-color: #f9fafb;
-  --text-rgb: 249, 250, 251;
-  --text-light: #d1d5db;
-  --link-color: #60a5fa;
-  --link-hover: #3b82f6;
-  --button-text: #f9fafb;
-  --background: #0f172a; /* Darker, richer blue-black */
-  --background-rgb: 15, 23, 42;
-  --background-light: #1e293b;
-  --background-alt: #1e293b;
-  --card-background: #1e293b;
-  --card-background-rgb: 30, 41, 59;
-  --border-color: #334155;
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-bg: rgba(30, 41, 59, 0.7);
-}
+  color-scheme: dark;
 
-/* Theme Toggle Button */
-.theme-toggle {
-  background: none;
-  border: none;
-  color: var(--text-color);
-  cursor: pointer;
-  padding: 0.5rem;
-  font-size: 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.2s;
-}
+  --bg: #0e1311;
+  --bg-rgb: 14, 19, 17;
+  --surface: #1b221e;
+  --surface-2: #2a332e;
+  --segment: #222a26;
+  --chip: #242c28;
+  --border: #2a332e;
+  --line: #2a332e;
 
-.theme-toggle:hover {
-  color: var(--primary-color);
-}
+  --text: #eef2ef;
+  --text-2: #9aa59f;
+  --text-3: #86918c;
 
-/* Apply theme colors */
-body {
-  background-color: var(--background);
-  color: var(--text-color);
-}
+  --accent-hover: #4bd897;
+  --accent-soft: rgba(62, 207, 142, 0.24);
+  --accent-soft-fg: #6be3ac;
 
-.header {
-  background-color: var(--background-alt);
-}
+  --ink: #eef2ef;
+  --on-ink: #0e1311;
+  --ink-hover: #ffffff;
 
-.feature-card {
-  background-color: var(--card-background);
-}
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-float: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --shadow-fab: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --shadow-lift: 0 24px 60px -20px rgba(0, 0, 0, 0.6);
+  --glass: rgba(30, 38, 34, 0.84);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --nav-active: rgba(255, 255, 255, 0.09);
 
-.benefits {
-  background-color: var(--background-alt);
-}
+  --tone-green-bg: rgba(59, 183, 131, 0.16);
+  --tone-green-fg: #6bd6a6;
+  --tone-orange-bg: rgba(242, 166, 90, 0.16);
+  --tone-orange-fg: #f5b97c;
+  --tone-indigo-bg: rgba(127, 143, 244, 0.18);
+  --tone-indigo-fg: #a5b1fa;
+  --tone-violet-bg: rgba(197, 139, 227, 0.16);
+  --tone-violet-fg: #d3a8ec;
+  --tone-blue-bg: rgba(93, 183, 227, 0.16);
+  --tone-blue-fg: #8fd0ee;
+  --tone-sand-bg: rgba(216, 196, 143, 0.16);
+  --tone-sand-fg: #d8c48f;
+  --tone-neutral-bg: rgba(255, 255, 255, 0.09);
+  --tone-neutral-fg: #eef2ef;
 
-.contact {
-  background-color: var(--background-light);
-}
+  --ok-bg: rgba(62, 207, 142, 0.14);
+  --ok-fg: #6be3ac;
+  --warn-bg: rgba(245, 184, 90, 0.14);
+  --warn-fg: #f5c06e;
+  --over-bg: rgba(226, 96, 72, 0.18);
+  --over-fg: #f08c78;
 
-.contact-card {
-  background-color: var(--card-background);
-}
-
-.footer {
-  background-color: var(--background);
-}
-
-.footer-bottom {
-  border-color: var(--border-color);
-}
-
-/* FAQ specific theme styles */
-.faq-item {
-  border-color: var(--border-color);
-}
-
-.faq-question {
-  background-color: var(--background-alt);
-}
-
-.faq-question:hover {
-  background-color: var(--card-background);
-}
-
-.faq-answer {
-  background-color: var(--card-background);
-}
-
-.faq-contact {
-  background-color: var(--background-alt);
-  border-color: var(--border-color);
-}
-
-/* Error page theme styles */
-.error-suggestions {
-  background-color: var(--background-alt);
-  border-color: var(--border-color);
-}
-
-.error-suggestions li {
-  border-color: var(--border-color);
-}
-
-/* Link styles for better visibility */
-a {
-  color: var(--link-color);
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: var(--link-hover);
-}
-
-/* Legal content links */
-.legal-content a {
-  color: var(--link-color);
-  text-decoration: underline;
-}
-
-.legal-content a:hover {
-  color: var(--link-hover);
-  text-decoration: underline;
-}
-
-/* Smooth transitions */
-* {
-  transition: background-color 0.3s ease, color 0.3s ease;
+  --bar-green: #3ecf8e;
+  --bar-green-soft: #2c6049;
+  --bar-orange: #f0a93b;
+  --bar-orange-soft: #65542e;
+  --bar-red: #e5664f;
 }

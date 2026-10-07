@@ -4,76 +4,81 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FAQ - Budgetelo</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <script>
+      (function () {
+        var d = document.documentElement, t = null;
+        try { t = localStorage.getItem("theme"); } catch (e) {}
+        if (t !== "light" && t !== "dark") {
+          t = window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        d.setAttribute("data-theme", t);
+        d.classList.add("js");
+      })();
+    </script>
     <link rel="stylesheet" href="css/themes.css" />
+    <link rel="stylesheet" href="css/styles.css" />
     <link rel="icon" href="images/logo.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..700&family=Geist:wght@400..700&display=swap"
       rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
   </head>
   <body>
-    <nav class="nav">
-      <div class="container nav-container">
-        <div class="logo">
-          <a href="/">
-            <img src="images/logo.svg" alt="Budgetelo Logo" class="logo-img" />
-            <span>Budgetelo</span>
-          </a>
-        </div>
-        <button class="mobile-menu-btn" aria-label="Toggle menu">
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="nav-links">
+    <header class="nav">
+      <div class="nav-bar">
+        <a href="/" class="logo" aria-label="Budgetelo home">
+          <img src="images/logo.svg" alt="" class="logo-img" />
+          <span>Budgetelo</span>
+        </a>
+        <nav class="nav-links" id="nav-links" aria-label="Main">
           <a href="/#features">Features</a>
-          <a href="/#benefits">Benefits</a>
-          <a href="/#download">Download</a>
-          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-            <i class="fas fa-moon"></i>
+          <a href="/#how-it-works">How it works</a>
+          <a href="/faq" aria-current="page">FAQ</a>
+          <a href="/#contact">Contact</a>
+          <a href="/#download" class="only-mobile">Download</a>
+        </nav>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode">
+            <svg class="i icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            <svg class="i icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+          </button>
+          <a href="/#download" class="btn btn-primary btn-sm nav-cta">Get the app</a>
+          <button class="icon-btn mobile-menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+            <svg class="i icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
+            <svg class="i icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
           </button>
         </div>
       </div>
-    </nav>
-    <header class="header">
-      <div class="container" style="text-align: center;">
-        <h1 class="reveal" style="font-size: 3.5rem; margin-bottom: 1.5rem; background: linear-gradient(135deg, var(--text-color) 0%, var(--primary-color) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Frequently Asked Questions</h1>
-        <p class="reveal delay-100" style="font-size: 1.25rem; color: var(--text-light); max-width: 600px; margin: 0 auto;">
-          Find answers to the most common questions about Budgetelo.
-        </p>
+    </header>
+    <header class="page-hero">
+      <div class="container">
+        <span class="eyebrow-pill reveal"><span class="dot"></span>Help center</span>
+        <h1 class="reveal delay-100">Frequently asked questions</h1>
+        <p class="reveal delay-200">Find answers to the most common questions about Budgetelo.</p>
       </div>
     </header>
 
     <main class="faq-content container">
       <div class="faq-sections">
         <section class="faq-category reveal">
-          <h2><i class="fas fa-mobile-alt"></i> Getting Started</h2>
+          <h2><span class="tile" data-tone="green"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg></span>Getting Started</h2>
 
           <div class="faq-item">
-            <div class="faq-question">
-              <h3>How do I download Budgetelo?</h3>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
+            <h3 class="faq-question"><button type="button" aria-expanded="false" aria-controls="faq-a1" id="faq-q1"><span>How do I download Budgetelo?</span><span class="chev"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button></h3>
+            <div class="faq-answer" id="faq-a1" role="region" aria-labelledby="faq-q1"><div>
               <p>
                 Budgetelo is available for download on both Google Play Store
                 and Apple App Store. Simply search for "Budgetelo" in your
                 device's app store.
               </p>
-            </div>
+            </div></div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question">
-              <h3>Is Budgetelo free to use?</h3>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
+            <h3 class="faq-question"><button type="button" aria-expanded="false" aria-controls="faq-a2" id="faq-q2"><span>Is Budgetelo free to use?</span><span class="chev"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button></h3>
+            <div class="faq-answer" id="faq-a2" role="region" aria-labelledby="faq-q2"><div>
               <p>
               Yes - the core of Budgetelo is free, with no usage limits and no ads.
               Budgets, accounts, transactions, categories, recurring transactions,
@@ -86,34 +91,28 @@
               reminders, and every color theme. It's billed monthly or yearly, the
               price is shown in the app before you buy, and you can cancel anytime.
               </p>
-            </div>
+            </div></div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question">
-              <h3>Do I need to create an account?</h3>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
+            <h3 class="faq-question"><button type="button" aria-expanded="false" aria-controls="faq-a3" id="faq-q3"><span>Do I need to create an account?</span><span class="chev"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button></h3>
+            <div class="faq-answer" id="faq-a3" role="region" aria-labelledby="faq-q3"><div>
               <p>
               Yes, creating an account is required to use Budgetelo. Don't worry though - 
               it's quick and easy! Having an account ensures your financial data is 
               safely backed up and you can access it from any device. Plus, it helps 
               us provide you with personalized features and insights.
               </p>
-            </div>
+            </div></div>
           </div>
         </section>
 
         <section class="faq-category reveal">
-          <h2><i class="fas fa-crown"></i> Budgetelo Premium</h2>
+          <h2><span class="tile" data-tone="sand"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"/><path d="M5 21h14"/></svg></span>Budgetelo Premium</h2>
 
           <div class="faq-item">
-            <div class="faq-question">
-              <h3>What does Budgetelo Premium include?</h3>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
+            <h3 class="faq-question"><button type="button" aria-expanded="false" aria-controls="faq-a4" id="faq-q4"><span>What does Budgetelo Premium include?</span><span class="chev"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button></h3>
+            <div class="faq-answer" id="faq-a4" role="region" aria-labelledby="faq-q4"><div>
               <p>
                 Premium unlocks four things on top of the free app: the complete
                 set of analytics reports (expense breakdown, category detail,
@@ -123,15 +122,12 @@
                 available as a monthly or yearly subscription - the yearly plan
                 works out significantly cheaper per month.
               </p>
-            </div>
+            </div></div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question">
-              <h3>How do I cancel my subscription?</h3>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
+            <h3 class="faq-question"><button type="button" aria-expanded="false" aria-controls="faq-a5" id="faq-q5"><span>How do I cancel my subscription?</span><span class="chev"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button></h3>
+            <div class="faq-answer" id="faq-a5" role="region" aria-labelledby="faq-q5"><div>
               <p>
                 Subscriptions are managed by the store you bought from, so you
                 cancel there:
@@ -143,15 +139,12 @@
                 uninstalling the app or deleting your Budgetelo account does
                 <strong>not</strong> cancel a subscription.
               </p>
-            </div>
+            </div></div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question">
-              <h3>What happens to my data if my subscription ends?</h3>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
+            <h3 class="faq-question"><button type="button" aria-expanded="false" aria-controls="faq-a6" id="faq-q6"><span>What happens to my data if my subscription ends?</span><span class="chev"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button></h3>
+            <div class="faq-answer" id="faq-a6" role="region" aria-labelledby="faq-q6"><div>
               <p>
                 Nothing disappears. All your budgets, accounts, transactions and
                 settings stay exactly as they are, the color theme you're
@@ -162,30 +155,24 @@
                 opening the reports beyond Income vs Expense. Resubscribe and
                 everything is available again right away.
               </p>
-            </div>
+            </div></div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question">
-              <h3>Can I use Premium on another device?</h3>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
+            <h3 class="faq-question"><button type="button" aria-expanded="false" aria-controls="faq-a7" id="faq-q7"><span>Can I use Premium on another device?</span><span class="chev"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button></h3>
+            <div class="faq-answer" id="faq-a7" role="region" aria-labelledby="faq-q7"><div>
               <p>
                 Yes. Your subscription is tied to the Apple ID or Google account
                 you bought it with. Sign in with the same account on the new
                 device, open the subscription screen and tap
                 <strong>Restore Purchases</strong>.
               </p>
-            </div>
+            </div></div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question">
-              <h3>Can I get a refund?</h3>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
+            <h3 class="faq-question"><button type="button" aria-expanded="false" aria-controls="faq-a8" id="faq-q8"><span>Can I get a refund?</span><span class="chev"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button></h3>
+            <div class="faq-answer" id="faq-a8" role="region" aria-labelledby="faq-q8"><div>
               <p>
                 Apple and Google process the payment, so refunds go through them
                 rather than us. Request one at
@@ -196,47 +183,38 @@
                 <a href="mailto:support@budgetelo.com">support@budgetelo.com</a>
                 first - we'd rather fix it.
               </p>
-            </div>
+            </div></div>
           </div>
         </section>
 
         <section class="faq-category reveal">
-          <h2><i class="fas fa-shield-alt"></i> Security & Privacy</h2>
+          <h2><span class="tile" data-tone="violet"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>Security & Privacy</h2>
 
           <div class="faq-item">
-            <div class="faq-question">
-              <h3>Is my financial data secure?</h3>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
+            <h3 class="faq-question"><button type="button" aria-expanded="false" aria-controls="faq-a9" id="faq-q9"><span>Is my financial data secure?</span><span class="chev"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button></h3>
+            <div class="faq-answer" id="faq-a9" role="region" aria-labelledby="faq-q9"><div>
               <p>
                 Absolutely! Your financial information is encrypted both in
                 transit and at rest, and we never share your personal data with
                 third parties.
               </p>
-            </div>
+            </div></div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question">
-              <h3>Can I connect my bank account?</h3>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
+            <h3 class="faq-question"><button type="button" aria-expanded="false" aria-controls="faq-a10" id="faq-q10"><span>Can I connect my bank account?</span><span class="chev"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button></h3>
+            <div class="faq-answer" id="faq-a10" role="region" aria-labelledby="faq-q10"><div>
               <p>
                 Currently, Budgetelo focuses on manual entry to give you
                 complete control over your data. This approach ensures maximum
                 privacy and security for your financial information.
               </p>
-            </div>
+            </div></div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question">
-              <h3>What happens to my data if I delete the app?</h3>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
+            <h3 class="faq-question"><button type="button" aria-expanded="false" aria-controls="faq-a11" id="faq-q11"><span>What happens to my data if I delete the app?</span><span class="chev"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button></h3>
+            <div class="faq-answer" id="faq-a11" role="region" aria-labelledby="faq-q11"><div>
               <p>
               Don't worry! Since you have an account with us, all your financial 
               data is safely stored in our secure cloud. You can reinstall the 
@@ -244,33 +222,27 @@
               - your budgets, expenses, and savings goals will be right where 
               you left them.
               </p>
-            </div>
+            </div></div>
           </div>
         </section>
 
         <section class="faq-category reveal">
-          <h2><i class="fas fa-chart-line"></i> Features & Usage</h2>
+          <h2><span class="tile" data-tone="indigo"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z"/><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/></svg></span>Features & Usage</h2>
 
           <div class="faq-item">
-            <div class="faq-question">
-              <h3>Can I set multiple savings goals?</h3>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
+            <h3 class="faq-question"><button type="button" aria-expanded="false" aria-controls="faq-a12" id="faq-q12"><span>Can I set multiple savings goals?</span><span class="chev"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button></h3>
+            <div class="faq-answer" id="faq-a12" role="region" aria-labelledby="faq-q12"><div>
               <p>
                 Yes! You can create unlimited savings goals - whether it's for a
                 vacation, emergency fund, or a new car. Track progress with
                 visual charts and get motivated by milestone celebrations.
               </p>
-            </div>
+            </div></div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question">
-              <h3>What kind of insights and charts does Budgetelo provide?</h3>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
+            <h3 class="faq-question"><button type="button" aria-expanded="false" aria-controls="faq-a13" id="faq-q13"><span>What kind of insights and charts does Budgetelo provide?</span><span class="chev"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button></h3>
+            <div class="faq-answer" id="faq-a13" role="region" aria-labelledby="faq-q13"><div>
               <p>
                 Great question! Budgetelo offers detailed visual insights into your spending and income patterns. 
                 You'll get beautiful, easy-to-understand charts that break down your expenses by category, 
@@ -278,88 +250,74 @@
                 These visual tools make it super simple to identify spending patterns and make smarter 
                 financial decisions. Think of it as having a personal finance analyst right in your pocket!
               </p>
-            </div>
+            </div></div>
           </div>
 
           <!-- <div class="faq-item">
-            <div class="faq-question">
-              <h3>How do budget notifications work?</h3>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
+            <h3 class="faq-question"><button type="button" aria-expanded="false" aria-controls="faq-a14" id="faq-q14"><span>How do budget notifications work?</span><span class="chev"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button></h3>
+            <div class="faq-answer" id="faq-a14" role="region" aria-labelledby="faq-q14"><div>
               <p>
                 Budgetelo sends smart notifications when you're approaching or
                 exceeding your budget limits. You can customize notification
                 preferences and choose which categories to monitor closely.
               </p>
-            </div>
+            </div></div>
           </div> -->
 
           <div class="faq-item">
-            <div class="faq-question">
-              <h3>Can I export my financial data?</h3>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
+            <h3 class="faq-question"><button type="button" aria-expanded="false" aria-controls="faq-a15" id="faq-q15"><span>Can I export my financial data?</span><span class="chev"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button></h3>
+            <div class="faq-answer" id="faq-a15" role="region" aria-labelledby="faq-q15"><div>
               <p>
                 Currently, data export is not available, but we're planning to
                 add CSV export functionality in future updates. This will allow
                 you to export your financial data for use in other applications
                 or for your personal records.
               </p>
-            </div>
+            </div></div>
           </div>
         </section>
 
         <section class="faq-category reveal">
-          <h2><i class="fas fa-question-circle"></i> Support</h2>
+          <h2><span class="tile" data-tone="blue"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span>Support</h2>
 
           <div class="faq-item">
-            <div class="faq-question">
-              <h3>How can I get help if I have issues?</h3>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
+            <h3 class="faq-question"><button type="button" aria-expanded="false" aria-controls="faq-a16" id="faq-q16"><span>How can I get help if I have issues?</span><span class="chev"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button></h3>
+            <div class="faq-answer" id="faq-a16" role="region" aria-labelledby="faq-q16"><div>
               <p>
               We're here to help! If you encounter any issues or have questions,
               simply send us an email at support@budgetelo.com and our friendly
               support team will get back to you as soon as possible.
               </p>
-            </div>
+            </div></div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question">
-              <h3>Do you offer tutorials for new users?</h3>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
+            <h3 class="faq-question"><button type="button" aria-expanded="false" aria-controls="faq-a17" id="faq-q17"><span>Do you offer tutorials for new users?</span><span class="chev"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button></h3>
+            <div class="faq-answer" id="faq-a17" role="region" aria-labelledby="faq-q17"><div>
               <p>
                 Currently, we don't have specific tutorials planned, but we're
                 doing everything we can to make the app as user-friendly as
                 possible. The interface is designed to be intuitive and easy to
                 navigate for users of all experience levels.
               </p>
-            </div>
+            </div></div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question">
-              <h3>Can I suggest new features?</h3>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
+            <h3 class="faq-question"><button type="button" aria-expanded="false" aria-controls="faq-a18" id="faq-q18"><span>Can I suggest new features?</span><span class="chev"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button></h3>
+            <div class="faq-answer" id="faq-a18" role="region" aria-labelledby="faq-q18"><div>
               <p>
                 We love hearing from our users! Send feature requests to
                 feedback@budgetelo.com or use the feedback option in the app.
                 Your suggestions help shape Budgetelo's future.
               </p>
-            </div>
+            </div></div>
           </div>
         </section>
       </div>
 
-      <div class="faq-contact reveal">
+      <div class="card faq-contact reveal">
+        <span class="tile tile-lg" data-tone="mint"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
         <h2>Still have questions?</h2>
         <p>
           If you couldn't find the answer you were looking for, we're here to
@@ -367,11 +325,11 @@
         </p>
         <div class="contact-options">
           <a href="mailto:support@budgetelo.com" class="btn btn-primary">
-            <i class="fas fa-envelope"></i>
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
             Contact Support
           </a>
-          <a href="/#download" class="btn btn-secondary">
-            <i class="fas fa-download"></i>
+          <a href="/#download" class="btn btn-ghost">
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
             Download App
           </a>
         </div>
@@ -381,60 +339,38 @@
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
-          <div class="footer-logo">
-            <img src="images/logo.svg" alt="Budgetelo Logo" class="logo-img" />
-            <span>Budgetelo</span>
+          <div class="footer-brand">
+            <a href="/" class="logo">
+              <img src="images/logo.svg" alt="" class="logo-img" />
+              <span>Budgetelo</span>
+            </a>
+            <p>A calm, simple way to plan your money - on iOS and Android.</p>
           </div>
           <div class="footer-links">
             <div class="footer-column">
               <h4>Product</h4>
               <a href="/#features">Features</a>
-              <a href="/#benefits">Benefits</a>
+              <a href="/#how-it-works">How it works</a>
               <a href="/#download">Download</a>
             </div>
             <div class="footer-column">
               <h4>Company</h4>
               <a href="/#contact">Contact</a>
-              <a href="faq">FAQ</a>
+              <a href="/faq">FAQ</a>
             </div>
             <div class="footer-column">
               <h4>Legal</h4>
-              <a href="privacy">Privacy Policy</a>
-              <a href="terms">Terms of Service</a>
+              <a href="/privacy">Privacy Policy</a>
+              <a href="/terms">Terms of Service</a>
             </div>
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2025</p>
+          <p>&copy; 2026 Budgetelo</p>
         </div>
       </div>
     </footer>
 
     <script src="js/main.js"></script>
-
-    <script>
-      // FAQ Accordion functionality
-      document.addEventListener("DOMContentLoaded", function () {
-        const faqItems = document.querySelectorAll(".faq-item");
-
-        faqItems.forEach((item) => {
-          const question = item.querySelector(".faq-question");
-
-          question.addEventListener("click", () => {
-            const isActive = item.classList.contains("active");
-
-            // Close all other items
-            faqItems.forEach((otherItem) => {
-              otherItem.classList.remove("active");
-            });
-
-            // Toggle current item
-            if (!isActive) {
-              item.classList.add("active");
-            }
-          });
-        });
-      });
-    </script>
   </body>
 </html>

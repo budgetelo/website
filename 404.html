@@ -4,68 +4,75 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page Not Found - Budgetelo</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <script>
+      (function () {
+        var d = document.documentElement, t = null;
+        try { t = localStorage.getItem("theme"); } catch (e) {}
+        if (t !== "light" && t !== "dark") {
+          t = window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        d.setAttribute("data-theme", t);
+        d.classList.add("js");
+      })();
+    </script>
     <link rel="stylesheet" href="css/themes.css" />
+    <link rel="stylesheet" href="css/styles.css" />
     <link rel="icon" href="images/logo.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..700&family=Geist:wght@400..700&display=swap"
       rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
   </head>
   <body>
-    <nav class="nav">
-      <div class="container nav-container">
-        <div class="logo">
-          <a href="/">
-            <img src="images/logo.svg" alt="Budgetelo Logo" class="logo-img" />
-            <span>Budgetelo</span>
-          </a>
-        </div>
-        <button class="mobile-menu-btn" aria-label="Toggle menu">
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="nav-links">
+    <header class="nav">
+      <div class="nav-bar">
+        <a href="/" class="logo" aria-label="Budgetelo home">
+          <img src="images/logo.svg" alt="" class="logo-img" />
+          <span>Budgetelo</span>
+        </a>
+        <nav class="nav-links" id="nav-links" aria-label="Main">
           <a href="/#features">Features</a>
-          <a href="/#benefits">Benefits</a>
-          <a href="/#download">Download</a>
-          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-            <i class="fas fa-moon"></i>
+          <a href="/#how-it-works">How it works</a>
+          <a href="/faq">FAQ</a>
+          <a href="/#contact">Contact</a>
+          <a href="/#download" class="only-mobile">Download</a>
+        </nav>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode">
+            <svg class="i icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            <svg class="i icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+          </button>
+          <a href="/#download" class="btn btn-primary btn-sm nav-cta">Get the app</a>
+          <button class="icon-btn mobile-menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+            <svg class="i icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
+            <svg class="i icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
           </button>
         </div>
       </div>
-    </nav>
-    <header class="header">
     </header>
-
     <main class="error-page container">
       <div class="error-content">
-        <div class="error-icon">
-          <i class="fas fa-search-dollar"></i>
-        </div>
+        <span class="tile tile-lg" data-tone="mint"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
         <h1 class="error-title">404</h1>
-        <h2 class="error-subtitle">Oops! Page Not Found</h2>
+        <h2 class="error-subtitle">Page not found</h2>
         <p class="error-description">
           It looks like this page has gone missing from our budget! The page
           you're looking for doesn't exist or has been moved.
         </p>
         <div class="error-actions">
           <a href="/" class="btn btn-primary">
-            <i class="fas fa-home"></i>
-            Back to Home
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            Back to home
           </a>
-          <a href="/#features" class="btn btn-secondary">
-            <i class="fas fa-star"></i>
-            Explore Features
+          <a href="/#features" class="btn btn-ghost">
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="2"/><rect width="7" height="7" x="14" y="3" rx="2"/><rect width="7" height="7" x="14" y="14" rx="2"/><rect width="7" height="7" x="3" y="14" rx="2"/></svg>
+            Explore features
           </a>
         </div>
-        <div class="error-suggestions">
-          <h3>What you can do:</h3>
+        <div class="card error-suggestions">
+          <h3>What you can do</h3>
           <ul>
             <li>Check the URL for any typos</li>
             <li>Visit our <a href="/">homepage</a></li>
@@ -79,31 +86,34 @@
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
-          <div class="footer-logo">
-            <img src="images/logo.svg" alt="Budgetelo Logo" class="logo-img" />
-            <span>Budgetelo</span>
+          <div class="footer-brand">
+            <a href="/" class="logo">
+              <img src="images/logo.svg" alt="" class="logo-img" />
+              <span>Budgetelo</span>
+            </a>
+            <p>A calm, simple way to plan your money - on iOS and Android.</p>
           </div>
           <div class="footer-links">
             <div class="footer-column">
               <h4>Product</h4>
               <a href="/#features">Features</a>
-              <a href="/#benefits">Benefits</a>
+              <a href="/#how-it-works">How it works</a>
               <a href="/#download">Download</a>
             </div>
             <div class="footer-column">
               <h4>Company</h4>
               <a href="/#contact">Contact</a>
-              <a href="faq">FAQ</a>
+              <a href="/faq">FAQ</a>
             </div>
             <div class="footer-column">
               <h4>Legal</h4>
-              <a href="privacy">Privacy Policy</a>
-              <a href="terms">Terms of Service</a>
+              <a href="/privacy">Privacy Policy</a>
+              <a href="/terms">Terms of Service</a>
             </div>
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2025</p>
+          <p>&copy; 2026 Budgetelo</p>
         </div>
       </div>
     </footer>
